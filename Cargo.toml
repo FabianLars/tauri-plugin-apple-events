@@ -1,0 +1,40 @@
+[package]
+name = "tauri-plugin-apple-events"
+version = "0.0.0"
+authors = ["FabianLars <fabianlars@fabianlars.de>"]
+description = "A Tauri plugin for apple events"
+repository = "https://github.com/FabianLars/tauri-plugin-apple-events"
+edition = "2021"
+rust-version = "1.64"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+include = ["src/**", "Cargo.toml", "LICENSE_*"]
+
+[dependencies]
+# tauri = "1"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = {version="0.3.0-beta.5", features=["catch-all"]}
+once_cell = "1"
+
+[features]
+default = [
+  "kAEOpenApplication",
+  "kAEReopenApplication",
+  "kAEOpenDocuments",
+  "kAEPrintDocuments",
+  "kAEOpenContents",
+  "kAEQuitApplication",
+  "kAEShowPreferences",
+  "kAEApplicationDied",
+  "kAEGetURL"
+]
+kAEApplicationDied = []
+kAEOpenApplication = []
+kAEOpenContents = []
+kAEOpenDocuments = []
+kAEPrintDocuments = []
+kAEQuitApplication = []
+kAEReopenApplication = []
+kAEShowPreferences = []
+kAEGetURL = []
