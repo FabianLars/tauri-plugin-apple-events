@@ -38,6 +38,7 @@ impl AppleEvent {
 
 impl From<u32> for AppleEvent {
     fn from(value: u32) -> Self {
+        dbg!(value, EVENT_OPEN_DOCUMENTS, value == EVENT_OPEN_DOCUMENTS);
         match value {
             EVENT_OPEN_APPLICATION => Self::kAEOpenApplication,
             EVENT_REOPEN_APPLICATION => Self::kAEReopenApplication,
